@@ -1,0 +1,112 @@
+*************DIO APIs****************
+
+void DIO_InitPin(DIO_Pin_type pin,DIO_PinStatus_type status);
+u8 DIO_ReadPort(DIO_Port_type port);
+void DIO_WritePin(DIO_Pin_type pin,DIO_Voltage_type volt);
+u8 DIO_ReadPin(DIO_Pin_type pin);
+void DIO_WritePort(DIO_Port_type port,u8 value);
+void DIO_Init(void);
+void  DIO_TogglePin(DIO_Pin_type pin);
+
+
+****************Timer0*****************
+
+void Timer0_Init( Timer0Mode_type mode,Timer0Scaler_type scaler ,OC0Mode_type oc_mode);
+void Timer0_OV_InterruptEnable(void);
+void Timer0_OV_InterruptDisable(void);
+void Timer0_OC_InterruptEnable(void);
+void Timer0_OC_InterruptDisable(void);
+
+******************timer1****************
+
+void Timer1_ICU_InterruptEnable(void);
+void Timer1_ICU_InterruptDisable(void);
+void Timer1_OVF_InterruptEnable(void);
+void Timer1_OVF_InterruptDisable(void);
+void Timer1_OCA_InterruptEnable(void);
+void Timer1_OCA_InterruptDisable(void);
+void Timer1_OCB_InterruptEnable(void);
+void Timer1_OCB_InterruptDisable(void);
+void Timer1_OVF_SetCallBack(void(*LocalFptr)(void));
+void Timer1_OCA_SetCallBack(void(*LocalFptr)(void));
+void Timer1_OCB_SetCallBack(void(*LocalFptr)(void));
+void Timer1_ICU_SetCallBack(void(*LocalFptr)(void));
+
+******************timer2**************
+
+
+void TIM2_Init(TIMER2_t timer_mode,T2_OC2 OC_mode,u8 prescaller);
+void TIM2_CompareMatch_Interrupt_Enable(void);
+void TIM2_CompareMatch_Interrupt_Disable(void);
+void TIM2_OverFlow_Interrupt_Enable(void);
+void TIM2_OverFlow_Interrupt_Disable(void);
+u32	 TIM2_Calc_FunTime(void (*local_ptr)(void));
+void TIM2CTC_SetCallBack(void (*local_ptr)(void));
+u32	 TIM2_Return_InterruptConter(void);
+void TIM2_Write_InterruptCounter(void);
+void TIM2_SetCallBack(void (*local_ptr)(void));
+
+****************TIMER SERVICES*************
+
+
+void PWM_Init(void);
+void PWM_Freq_KHZ(u16 freq);
+void PWM_Freq_HZ(u16 freq);
+void PWM_Duty(u16 duty);
+
+void Timer1_SetInterruptTime_ms (u16 time,void(*LocalFptr)(void));
+void Timer1_SetInterruptTime_us (u16 time,void(*LocalFptr)(void));
+void Timer1_SetInterruptTime_s (u16 time,void(*LocalFptr)(void));
+void PWM_Measure(u32* Pfreq,u8* Pduty);
+void PWM_Measure2(u32* Pfreq,u8* Pduty);
+static void Func_ICU(void);
+
+
+**************************LCD**************
+void LCD_Init(void);
+void LCD_Clear(void);
+
+void LCD_WriteNumberGoTo(u8 line,u8 x, u64 num);
+void LCD_Clear();
+void LCD_WriteNumberInHex(u8 num);
+void LCD_WriteChar(u8 ch);
+void LCD_WriteNumber(s64 num);
+void LCD_WriteString(u8* str);
+void LCD_GoTo(u8 line,u8 x);
+
+*************************SERVO*************
+
+void servo (u8 angle);
+void servo_Init();
+
+********************STEPPER**************
+
+void STEPPER_CW(void);
+void STEPPER_CCW();
+
+***************UART (NOT FINISHED)************
+
+void UART_Init(void);
+void UART_Send(u8 data);
+u8 UART_Receive(void);
+u8 UART_Receive_PeriodicCheck(u8* data);
+
+**************UART_SERVICES******************
+
+void UART_SendStr(u8* str);
+void UART_RxStr(u8* str);
+void UART_SendNum32U(u32 num);
+u32 UART_RecNum32U(void);
+
+
+
+
+
+
+
+
+
+
+
+
+
