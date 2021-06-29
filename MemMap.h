@@ -382,7 +382,7 @@ void vector (void)*/
 
 /*interrupt functions*/
 
-# define sei()  __asm__ __volatile__ ("sei" ::)  //assembly code to enable intr .. to talk to cpu direct
+# define sei()  __asm__ __volatile__ ("sei" ::)
 # define cli()  __asm__ __volatile__ ("cli" ::)
 # define reti()  __asm__ __volatile__ ("reti" ::)
 # define ret()  __asm__ __volatile__ ("ret" ::)
